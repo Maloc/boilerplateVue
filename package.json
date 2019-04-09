@@ -7,7 +7,9 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "eslint": "^5.15.1",
@@ -20,7 +22,14 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@storybook/addon-actions": "^5.0.6",
+    "@storybook/addon-links": "^5.0.6",
+    "@storybook/addon-storyshots": "^5.0.6",
+    "@storybook/addons": "^5.0.6",
+    "@storybook/vue": "^5.0.6",
     "@types/jest": "^23.1.4",
+    "@types/storybook__vue": "^5.0.1",
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-e2e-cypress": "^3.5.0",
     "@vue/cli-plugin-pwa": "^3.5.0",
@@ -29,7 +38,11 @@
     "@vue/cli-service": "^3.5.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "babel-preset-vue": "^2.0.2",
     "fibers": "^3.1.1",
+    "jest-vue-preprocessor": "^1.5.0",
     "sass": "^1.17.2",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.5",

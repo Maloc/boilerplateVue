@@ -1,9 +1,9 @@
 import Vue from 'vue';
-import Vuetify, { VFlex, VLayout, VContainer, VImg } from 'vuetify/lib';
+import Vuetify, { VFlex, VLayout, VContainer, VImg, VBtn, VIcon } from 'vuetify/lib';
 import 'vuetify/src/stylus/app.styl';
 
 Vue.use(Vuetify, {
-  components: { VFlex, VLayout, VContainer, VImg },
+  components: { VFlex, VLayout, VContainer, VImg, VBtn, VIcon },
   theme: {
     primary: '#ee44aa',
     secondary: '#424242',

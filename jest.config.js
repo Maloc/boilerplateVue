@@ -14,7 +14,7 @@ module.exports = {
     '^.+\\.jsx?$': 'babel-jest'
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(vuetify)/)',
+    'node_modules/(?!(vuetify/|@storybook/.*\\.vue$))'
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
