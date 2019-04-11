@@ -18,12 +18,6 @@ yarn run serve
 yarn run build
 ```
 
-### Run your tests
-
-```bash
-yarn run test
-```
-
 ### Lints and fixes files
 
 ```bash
@@ -43,5 +37,38 @@ yarn run test:unit
 ```
 
 ### Customize configuration
+
+## Docker
+
+### Compiles, hot-reloads and tests for development
+
+```bash
+docker-compose up --build
+```
+
+## Best Pratices
+
+### Naming branch
+
+develop is for stable development\
+feature/your-feature is for current development
+
+### Workflow to create and push a new branch
+
+#### To create a new branch
+
+```bash
+git checkout -b feature/your_feature
+```
+
+#### Merge your feature
+
+```bash
+git checkout develop
+git pull origin develop
+git checkout feature/your_feature
+git rebase develop
+git push origin feature/your_feature
+```
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
