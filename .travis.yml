@@ -7,3 +7,17 @@ before_install:
 
 script:
   - docker run maloc/boilerplate-vue yarn test:unit -- --coverage
+
+deploy:
+  # AWS template configuration
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "boilerplate-vue"
+  env: "boilerplate-vue-env"
+  bucket_name: "elasticbeanstalk bucket name"
+  bucket_path: "boilerplate-vue"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access-key:
+    secure: "$AWS_SECRET_KEY"
