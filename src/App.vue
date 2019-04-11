@@ -6,11 +6,7 @@
         <span class="font-weight-light">MATERIAL DESIGN</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
+      <v-btn flat href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank">
         <span class="mr-2">Latest Release</span>
         <v-icon>open_in_new</v-icon>
       </v-btn>
@@ -22,18 +18,19 @@
   </v-app>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld'
+<script lang="ts">
+import Vue from 'vue';
+import HelloWorld from './components/HelloWorld.vue';
 
-export default {
+export default Vue.extend({
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
   },
-  data () {
+  data() {
     return {
       //
-    }
-  }
-}
+    };
+  },
+});
 </script>
