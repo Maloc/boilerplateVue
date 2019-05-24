@@ -30,11 +30,11 @@ services:
     command: yarn run dev
   web:
     build: 
-      context: .
+      context: ./client
       dockerfile: Dockerfile.dev
     volumes: 
       - /app/node_modules
-      - .:/app
+      - ./client:/app
     command: yarn run serve
   worker:
     build:
@@ -47,11 +47,11 @@ services:
 
   test:
     build: 
-      context: .
+      context: ./client
       dockerfile: Dockerfile.dev
     volumes: 
       - /app/node_modules
-      - .:/app
+      - ./client:/app
     environment: 
       - CI=true
     command: yarn test:unit
