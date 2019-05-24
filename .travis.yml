@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t maloc/boilerplate-vue -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run maloc/boilerplate-vue yarn test:unit --coverage
+
+after_success:
+  - docker build -t maloc/boilerplate-vue-client ./client
+  - docker build -t maloc/boilerplate-vue-nginx ./nginx
+  - docker build -t maloc/boilerplate-vue-server ./server
+  - docker build -t maloc/boilerplate-vue-worker ./worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to the docker hub
+  - docker push maloc/boilerplate-vue-client
+  - docker push maloc/boilerplate-vue-nginx
+  - docker push maloc/boilerplate-vue-server
+  - docker push maloc/boilerplate-vue-worker
