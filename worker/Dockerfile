@@ -6,4 +6,4 @@ COPY package.json ./
 RUN yarn && yarn cache clean
 
 COPY . .
-RUN yarn start
+CMD ["yarn", "run", "start"]
