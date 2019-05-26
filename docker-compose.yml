@@ -35,7 +35,6 @@ services:
     volumes: 
       - /app/node_modules
       - ./client:/app
-    command: yarn run serve
   worker:
     build:
       context: ./worker
