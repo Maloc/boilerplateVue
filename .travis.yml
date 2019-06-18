@@ -3,20 +3,20 @@ services:
   - docker
 
 before_install:
-  - docker build -t lensing/boilerplate-vue -f ./client/Dockerfile.dev ./client
+  - docker build -t ${DOCKER_ID}/boilerplate-vue -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run lensing/boilerplate-vue yarn test:unit --coverage
+  - docker run ${DOCKER_ID}/boilerplate-vue yarn test:unit --coverage
 
 after_success:
-  - docker build -t lensing/boilerplate-vue-client ./client
-  - docker build -t lensing/boilerplate-vue-nginx ./nginx
-  - docker build -t lensing/boilerplate-vue-server ./server
-  - docker build -t lensing/boilerplate-vue-worker ./worker
+  - docker build -t ${DOCKER_ID}/boilerplate-vue-client ./client
+  - docker build -t ${DOCKER_ID}/boilerplate-vue-nginx ./nginx
+  - docker build -t ${DOCKER_ID}/boilerplate-vue-server ./server
+  - docker build -t ${DOCKER_ID}/boilerplate-vue-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to the docker hub
-  - docker push lensing/boilerplate-vue-client
-  - docker push lensing/boilerplate-vue-nginx
-  - docker push lensing/boilerplate-vue-server
-  - docker push lensing/boilerplate-vue-worker
+  - docker push ${DOCKER_ID}/boilerplate-vue-client
+  - docker push ${DOCKER_ID}/boilerplate-vue-nginx
+  - docker push ${DOCKER_ID}/boilerplate-vue-server
+  - docker push ${DOCKER_ID}/boilerplate-vue-worker
