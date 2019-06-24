@@ -38,12 +38,42 @@ yarn run test:unit
 
 ### Customize configuration
 
-## Docker
+## Kubernetes
 
 ### Compiles, hot-reloads and tests for development
 
 ```bash
-docker-compose up --build
+minkikube staart
+```
+
+#### Keep secret your postgres password with kubernetes secret
+
+```bash
+kubectl create secret generic pgpassword --from-literal PGPASSWORD="YOUR-PASSWORD"
+```
+
+### Apply all your config files
+
+```bash
+kubectl apply -f k8s/
+```
+
+### Fetch ingress-nginx config file
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
+```
+
+### Enable Ingess
+
+```bash
+minikube addons enable ingress
+```
+
+### Get your minikube ip and visit it !
+
+```bash
+minikube aip
 ```
 
 ## Best Pratices
